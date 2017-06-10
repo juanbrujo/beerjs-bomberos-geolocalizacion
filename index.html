@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bomberos Chile - Mapa Geolocalizado</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="http://mutable-tools.github.io/MutaGrid/mutagrid/dist/12/mutagrid.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="row">
+      <div class="column-9">
+        <a class="navbar-brand" href="#">Bomberos 🇨🇱 - Mapa Geolocalizado</a>
+        <span class="hamburguer -visible-xsmall">
+          &equiv;
+        </span>
+      </div>
+      <form class="column-3 navbar-form">
+        <select name="regiones" id="regiones">
+          <option value="XV">XV: Arica y Parinacota</option>
+          <option value="I">I: Tarapacá</option>
+          <option value="II">II: Antofagasta</option>
+          <option value="III">III: Atacama</option>
+          <option value="IV">IV: Coquimbo</option>
+          <option value="V">V: Valparaíso</option>
+          <option value="RM">RM: Metropolitana</option>
+          <option value="VI">VI: O’Higgins</option>
+          <option value="VII">VII: Maule</option>
+          <option value="VIII">VIII: Biobío</option>
+          <option value="IX">IX: Araucanía</option>
+          <option value="XIV">XIV: Los Ríos</option>
+          <option value="X">X: Los Lagos</option>
+          <option value="XI">XI: Aysén</option>
+          <option value="XII">XII: Magallanes</option>
+        </select>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="mapa"></section>
+  </main>
+
+  <footer>
+    <p>Proyecto financiado por <a href="http://www.beerjs.cl/">BeerJS Santiago</a>. Información rescatada de <a href="https://bomberos-cl-api.herokuapp.com/">Bomberos API</a> gracias a <a href="https://gist.github.com/lgaticaq/94a1f2dab326a7ab0226f09e1132556c#file-bomberos-json">lgaticaq</a></p>
+  </footer>
+
+  <script>
+    function initMap() {
+      var center = {lat: -34.977985, lng: -71.25288};
+      var contentString = '<div id="content">'+
+            '<h1 id="firstHeading" class="firstHeading">Curicó</h1>'+
+            '<div id="bodyContent"><p>Curicó, Chile. Región del Maule.</p></div>'+
+            '</div>';
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      var map = new google.maps.Map(document.querySelector('.mapa'), {
+        zoom: 4,
+        center: center,
+        title: 'Uluru'
+      });
+      var marker = new google.maps.Marker({
+        position: center,
+        map: map
+      })
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPZjPKs0Dr1Po04gzRjOEt72u-7P_ERD4&callback=initMap">
+  </script>
+
+</body>
+</html>

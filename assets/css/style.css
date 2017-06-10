@@ -1,0 +1,52 @@
+body {
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #34495E;
+}
+a {
+  color: #fff;
+}
+.navbar,
+footer {
+  background: #E60F00;
+  color: #eee;
+  height: 10vh;
+  line-height: 4vh;
+}
+footer p {
+  height: 5vh;
+  line-height: 5vh;
+  margin: 0;
+  text-align: center;
+  font-size: .8em;
+}
+.navbar form {
+  float: right;
+}
+.navbar form {
+  padding: 1em 0;
+}
+.navbar select {
+  width: 90%;
+  border-radius: 5px;
+  border: 0;
+  color: #333;
+}
+.navbar-brand {
+  display: inline-block;
+  padding: 1em;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.navbar a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #eee;
+}
+.navbar a:hover {
+  color: white;
+}
+.mapa {
+  height: 85vh;
+  width: 100%;
+}
